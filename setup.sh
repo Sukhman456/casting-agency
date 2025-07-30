@@ -1,5 +1,5 @@
 #!/bin/bash
-export DATABASE_URL="postgresql://postgres:sukh123@localhost:5432/casting_agency"
+export DATABASE_URL="postgresql://casting_db_wa8b_user:gKfDBermd2fuqtzL60LXFGmulP4pRJpz@dpg-d24qf0hr0fns73dcbre0-a/casting_db_wa8b"
 export AUTH0_DOMAIN="fsnn.us.auth0.com"
 export API_AUDIENCE="casting-agency"
 export ALGORITHMS="RS256"

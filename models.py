@@ -3,7 +3,7 @@ from sqlalchemy import Column, String, Integer, Date, Table, ForeignKey
 from sqlalchemy.orm import relationship
 import os
 
-database_path = os.getenv('DATABASE_URL', 'postgresql://postgres:sukh123@localhost:5432/casting_agency')
+database_path = os.environ.get('DATABASE_URL')
 
 db = SQLAlchemy()
 
