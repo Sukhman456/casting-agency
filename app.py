@@ -19,7 +19,7 @@ def create_app(test_config=None):
 
     # Uncomment to reset DB (for first run)
     with app.app_context():
-        db_drop_and_create_all()
+        db.create_all()
 
     # ROUTES
 
