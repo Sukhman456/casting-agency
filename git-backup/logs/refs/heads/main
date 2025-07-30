@@ -1,0 +1,5 @@
+0000000000000000000000000000000000000000 b5c7b79f2f5a1457da538cf0a997648ebe5ad2ec Sukhman <Sukhmanaulakh0472@gmail.com> 1753845683 +0530	commit (initial): Initial commit for backend
+b5c7b79f2f5a1457da538cf0a997648ebe5ad2ec b5c7b79f2f5a1457da538cf0a997648ebe5ad2ec Sukhman <Sukhmanaulakh0472@gmail.com> 1753845769 +0530	Branch: renamed refs/heads/master to refs/heads/main
+b5c7b79f2f5a1457da538cf0a997648ebe5ad2ec 297c0eeab777f3264aebcd377b4a238e2d8fe1a6 Sukhman <Sukhmanaulakh0472@gmail.com> 1753846563 +0530	commit: Set Python version to 3.10.14 for Render
+297c0eeab777f3264aebcd377b4a238e2d8fe1a6 84e2bf345f960a0bacf313423730ee40e52cfd88 Sukhman <Sukhmanaulakh0472@gmail.com> 1753852785 +0530	commit: Use db.create_all instead of db_drop_and_create_all
+84e2bf345f960a0bacf313423730ee40e52cfd88 657929343838f7e616c855e0c6abeb63500ae2b2 Sukhman <Sukhmanaulakh0472@gmail.com> 1753877510 +0530	commit: Switched database to Render PostgreSQL
