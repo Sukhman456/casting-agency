@@ -62,6 +62,25 @@ This project uses Auth0 for authentication & authorization.
 
 ---
 
+### 🔐 Authentication & Testing Instructions
+This API uses **Auth0-based JWT authentication**. Directly opening the backend URL in the browser will show `401 Unauthorized` because every endpoint requires a valid token.
+
+#### How to Test the Endpoints:
+1. Go to the [Frontend URL](https://casting-agency-1-7fwe.onrender.com) and log in with the provided credentials.
+2. After logging in, retrieve the **Access Token** from browser developer tools or use [jwt.io](https://jwt.io/).
+3. Use the token with any request to the backend API:
+   ```bash
+   curl -H "Authorization: Bearer YOUR_ACCESS_TOKEN" https://casting-agency-gfyq.onrender.com/movies
+   ```
+4. Replace `YOUR_ACCESS_TOKEN` with the actual token.
+
+#### Roles & Permissions:
+- **Casting Assistant:** Can `GET` actors and movies.
+- **Casting Director:** Can `GET`, `PATCH`, and `POST` actors and movies.
+- **Executive Producer:** Full access including `DELETE`.
+
+---
+
 ## API Reference
 
 ### GET /movies
