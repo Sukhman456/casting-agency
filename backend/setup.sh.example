@@ -1,0 +1,5 @@
+export DATABASE_URL="your-database-url"
+export AUTH0_DOMAIN="your-auth0-domain"
+export API_AUDIENCE="your-api-audience"
+export ALGORITHMS="RS256"
+export TOKEN="your-test-token"
