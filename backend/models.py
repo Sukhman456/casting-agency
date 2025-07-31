@@ -21,19 +21,13 @@ def setup_db(app, database_path=database_path):
     db.init_app(app)
 
 def db_drop_and_create_all():
-     with db.app.app_context():
+    with db.app.app_context():
         db.drop_all()
         db.create_all()
 
-class Actor(db.Model):
-    __tablename__ = 'actors'
-
-    id = Column(Integer, primary_key=True)
-    name = Column(String, nullable=False)
-    age = Column(Integer, nullable=False)
-    gender = Column(String, nullable=False)
-
-    movies = relationship('Movie', secondary=actor_movie, back_populates='actors')
+# ✅ Base model class for shared CRUD methods
+class BaseModel(db.Model):
+    __abstract__ = True   # Prevents creating a table for this class
 
     def insert(self):
         db.session.add(self)
@@ -45,6 +39,17 @@ class Actor(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
+
+# ✅ Actor model
+class Actor(BaseModel):
+    __tablename__ = 'actors'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String, nullable=False)
+    age = Column(Integer, nullable=False)
+    gender = Column(String, nullable=False)
+
+    movies = relationship('Movie', secondary=actor_movie, back_populates='actors')
 
     def format(self):
         return {
@@ -55,7 +60,8 @@ class Actor(db.Model):
             'movies': [m.id for m in self.movies]
         }
 
-class Movie(db.Model):
+# ✅ Movie model
+class Movie(BaseModel):
     __tablename__ = 'movies'
 
     id = Column(Integer, primary_key=True)
@@ -64,17 +70,6 @@ class Movie(db.Model):
 
     actors = relationship('Actor', secondary=actor_movie, back_populates='movies')
 
-    def insert(self):
-        db.session.add(self)
-        db.session.commit()
-
-    def update(self):
-        db.session.commit()
-
-    def delete(self):
-        db.session.delete(self)
-        db.session.commit()
-
     def format(self):
         return {
             'id': self.id,
@@ -82,4 +77,3 @@ class Movie(db.Model):
             'release_date': self.release_date.isoformat(),
             'actors': [a.id for a in self.actors]
         }
-
